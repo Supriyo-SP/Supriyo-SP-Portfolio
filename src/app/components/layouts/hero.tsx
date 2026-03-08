@@ -77,9 +77,7 @@ export default function Hero() {
                 <span className="block text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
                   SUPRIYO
                 </span>
-                <span className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  SENGUPTA
-                </span>
+               
               </h1>
             </motion.div>
 

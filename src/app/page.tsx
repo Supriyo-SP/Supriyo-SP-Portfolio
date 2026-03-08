@@ -2,6 +2,9 @@
 import Navbar from './components/layouts/navbar';
 import Hero  from './components/layouts/hero';
 import Skills from './components/layouts/skills';
+import Projects from './components/layouts/projects';
+import Achievements from './components/layouts/achievements';
+import Contact from './components/layouts/contacts';
  
 export default function Home() {
   return (
@@ -9,6 +12,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Skills />
+      <Projects/>
+      <Achievements /> 
+      <Contact/>
     </div>
   );
 }
