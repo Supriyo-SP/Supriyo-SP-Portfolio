@@ -164,7 +164,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 rounded-2xl md:rounded-3xl blur-2xl" />
             
             {/* Main card */}
-            <div className="relative rounded-2xl md:rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl p-5 md:p-6 space-y-4 md:space-y-5">
+            <div className="relative rounded-2xl md:rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl p-5 md:p-6 lg:p-5 space-y-3 md:space-y-4 lg:space-y-3">
               {/* Header */}
               <div className="flex items-center justify-between">
                 <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
@@ -180,10 +180,14 @@ export default function Hero() {
               </div>
 
               {/* Avatar placeholder */}
-              <div className="relative w-24 h-24 md:w-28 md:h-28 mx-auto">
+              <div className="relative w-32 h-40 md:w-40 md:h-48 mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl blur-lg opacity-60" />
-                <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-600/20 border-2 border-white/20 flex items-center justify-center overflow-hidden">
-                  <div className="text-6xl">👨‍💻</div>
+                <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-600/20 border-2 border-white/20 overflow-hidden flex items-center justify-center">
+                  <img 
+                    src="https://via.placeholder.com/300x400?text=Your+Photo" 
+                    alt="Profile Avatar"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
                 </div>
               </div>
 
