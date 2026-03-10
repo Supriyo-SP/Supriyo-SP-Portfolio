@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 import { motion } from 'motion/react';
 import { Code2, Cpu, Sparkles, Terminal, Zap, Rocket, GraduationCap, MapPin, Download, Send } from 'lucide-react';
 
@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid lg:grid-cols-[1.2fr,0.8fr] gap-6 md:gap-8 items-start">
           {/* Left side - Main Hero Content */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-2 md:space-y-3">
             {/* Terminal-style header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="space-y-3"
+              className=""
             >
               <div className="flex items-center gap-3 flex-wrap">
                 <motion.div
@@ -72,13 +72,43 @@ export default function Hero() {
                 />
                 <span className="text-lg md:text-xl text-gray-400 font-medium">Developer & Creator</span>
               </div>
+
+              <div className="grid items-center gap-2 lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px]">
+                <div className="space-y-2">
+                  <span className="block text-2xl font-semibold tracking-[0.1em] text-cyan-300 md:text-3xl">
+                    Hi, I'm
+                  </span>
+                  <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.86]">
+                    <span className="block text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      SUPRIYO
+                    </span>
+                  </h1>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.7, delay: 0.35 }}
+                  className="relative mx-auto hidden aspect-square w-full max-w-[280px] lg:block xl:max-w-[320px]"
+                >
+                  <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/30 to-purple-600/25 blur-3xl" />
+                  <div className="relative flex h-full items-center justify-center overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-br from-slate-800/75 via-slate-900/80 to-slate-950/90 shadow-2xl">
+                    <div className="absolute inset-5 rounded-[1.5rem] border border-dashed border-cyan-300/35" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.20),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(168,85,247,0.18),_transparent_38%)]" />
+                    <div className="relative flex flex-col items-center gap-4 px-8 text-center">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-white/8 ring-1 ring-white/10 backdrop-blur-sm">
+                        <Code2 size={34} className="text-cyan-300" />
+                      </div>
+                      <div className="space-y-2">
+                        
               
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-none">
-                <span className="block text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  SUPRIYO
-                </span>
-               
-              </h1>
+                       <Image src="/me_in_web.jpeg" alt="Profile Photo" width={80} height={80} />
+                        
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Roles with animated badges */}
@@ -164,65 +194,68 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 rounded-2xl md:rounded-3xl blur-2xl" />
             
             {/* Main card */}
-            <div className="relative rounded-2xl md:rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl p-5 md:p-6 lg:p-5 space-y-3 md:space-y-4 lg:space-y-3">
+            <div className="relative rounded-2xl md:rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl p-5 md:p-6 space-y-4 md:space-y-5">
               {/* Header */}
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <div className="flex items-center gap-3 justify-center">
+                <h3 className="flex items-center justify-center text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                   About Me
                 </h3>
-                <motion.div
+                {/* <motion.div
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                   className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center"
                 >
                   <Code2 size={20} className="text-white" />
-                </motion.div>
-              </div>
-
-              {/* Avatar placeholder */}
-              <div className="relative w-32 h-40 md:w-40 md:h-48 mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl blur-lg opacity-60" />
-                <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-600/20 border-2 border-white/20 overflow-hidden flex items-center justify-center">
-                  <img 
-                    src="https://via.placeholder.com/300x400?text=Your+Photo" 
-                    alt="Profile Avatar"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
-                </div>
+                </motion.div> */}
               </div>
 
               {/* Bio */}
               <p className="text-gray-300 text-sm md:text-base leading-relaxed text-center">
-                Passionate CS student turning ideas into reality through code. Building solutions 
-                that blend software & hardware seamlessly.
+                I’m Supriyo Pal, a Computer Science student and Full Stack Developer based in Kalyani, West Bengal. I build modern web applications using the MERN stack, Next.js, and Java Spring Boot, with a focus on clean architecture, secure APIs, and scalable backend systems.
+
+I enjoy transforming ideas into practical products—from institutional platforms to full-stack learning systems. Currently pursuing my B.Tech in CSE (CGPA: 8.67), I’m continuously improving my development skills while working on real-world projects.
+
               </p>
 
               {/* Info cards */}
               <div className="space-y-2">
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-br from-cyan-500/10 to-cyan-600/10 border border-cyan-500/20">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center flex-shrink-0">
-                    <GraduationCap size={20} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400">Education</p>
-                    <p className="text-white font-semibold text-sm">CSE Student</p>
+                <div className="rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-cyan-600/10 p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center flex-shrink-0">
+                      <GraduationCap size={20} className="text-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <div>
+                        <p className="text-xs text-gray-400">Education</p>
+                        <p className="text-white font-semibold text-sm md:text-base">CSE, 6th Semester</p>
+                      </div>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs md:text-sm text-gray-300">
+                        <span>SGPA: <span className="text-white font-semibold">8.67</span></span>
+                        <span>Expected: <span className="text-white font-semibold">2027</span></span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/20">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={20} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400">Location</p>
-                    <p className="text-white font-semibold text-sm">India</p>
+                <div className="rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-purple-600/10 p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center flex-shrink-0">
+                      <MapPin size={20} className="text-white" />
+                    </div>
+                    <div className="space-y-1">
+                      <div>
+                        <p className="text-xs text-gray-400">Location</p>
+                        <p className="text-white font-semibold text-sm md:text-base">Kolkata, India</p>
+                      </div>
+                      <p className="text-xs md:text-sm text-gray-300">Open to internships and freelance work.</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Status badge */}
               <motion.div
-                className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl shadow-lg"
+                className="mx-auto flex w-fit items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 px-5 py-3 shadow-lg"
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -233,7 +266,7 @@ export default function Hero() {
               {/* Quick contact */}
               <motion.a
                 href="#contact"
-                className="group w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-white/10 hover:border-cyan-400/50 transition-all duration-300 relative overflow-hidden"
+                className="group relative mx-auto flex w-fit items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/10 px-5 py-3 transition-all duration-300 hover:border-cyan-400/50"
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />

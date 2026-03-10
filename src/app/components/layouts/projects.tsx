@@ -1,48 +1,34 @@
 import { motion } from 'motion/react';
-import { ExternalLink, Github, ShoppingCart, Home, CheckSquare, Cloud, Palette, MessageSquare } from 'lucide-react';
+import { BookOpen, ExternalLink, FileText, Github,Globe, Link } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce application with real-time inventory management and payment integration.',
-    icon: ShoppingCart,
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    title: 'IIE Kalyani Official Website',
+    description: 'Engineered the official college website using Next.js with Strapi CMS integration, enabling administrators to manage and update dynamic content efficiently.',
+    icon: Globe,
+    tags: ['Next.js', 'Strapi CMS', 'React', 'Node.js'],
     gradient: 'from-cyan-500 to-blue-600',
   },
   {
-    title: 'Smart Home Dashboard',
-    description: 'IoT dashboard for controlling and monitoring smart home devices with real-time data visualization.',
-    icon: Home,
-    tags: ['React', 'MQTT', 'ESP32', 'WebSockets'],
+    title: 'Learnity – E-Learning Platform',
+    description: 'Developed a full-stack online learning platform with JWT-based authentication, allowing secure user access and dynamic course delivery.',
+    icon: BookOpen,
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
     gradient: 'from-purple-500 to-pink-600',
   },
   {
-    title: 'Task Management App',
-    description: 'Collaborative task management tool with team features, deadlines, and progress tracking.',
-    icon: CheckSquare,
-    tags: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
+    title: 'BlogHub Publishing Platform',
+    description: 'Built a responsive blog publishing and content management platform with efficient backend handling and smooth content delivery.',
+    icon: FileText,
+    tags: ['Node.js', 'Express', 'REST API'],
     gradient: 'from-green-500 to-emerald-600',
   },
   {
-    title: 'Weather Monitoring System',
-    description: 'IoT-based weather station collecting temperature, humidity, and air quality data.',
-    icon: Cloud,
-    tags: ['Arduino', 'Python', 'React', 'InfluxDB'],
+    title: 'Robust URL Shortener',
+    description: 'Designed a high-performance URL shortening service using Spring Boot and MySQL with reliable database persistence and fast redirection logic.',
+    icon: Link,
+    tags: ['Java', 'Spring Boot', 'MySQL', 'REST API'],
     gradient: 'from-orange-500 to-red-600',
-  },
-  {
-    title: 'Portfolio Builder',
-    description: 'Web app for creating beautiful portfolio websites with drag-and-drop interface.',
-    icon: Palette,
-    tags: ['React', 'Tailwind', 'Firebase', 'DnD Kit'],
-    gradient: 'from-indigo-500 to-purple-600',
-  },
-  {
-    title: 'AI Chatbot Assistant',
-    description: 'Intelligent chatbot with natural language processing for customer support automation.',
-    icon: MessageSquare,
-    tags: ['React', 'OpenAI', 'Node.js', 'Redis'],
-    gradient: 'from-pink-500 to-rose-600',
   },
 ];
 
