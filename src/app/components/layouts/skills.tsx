@@ -816,7 +816,7 @@ export default function Skills() {
           </div>
 
         {/* Stage Navigation Buttons */}
-        <div className="flex justify-center gap-4 mt-15">
+        <div className="hidden lg:flex justify-center gap-4 mt-15">
           <button
             onClick={() => setStage(0)}
             className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
@@ -853,7 +853,7 @@ export default function Skills() {
         </div>
 
         {/* Stage Indicator Dots */}
-        <div className="flex justify-center gap-3 mt-6">
+        <div className="hidden lg:flex justify-center gap-3 mt-6">
           {[0, 1, 2].map((index) => (
             <button
               key={index}

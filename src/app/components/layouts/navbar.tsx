@@ -23,7 +23,7 @@ export default function Navbar() {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Supriyo-SP', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/supriyo-pal-4064a6378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com/supriyo_9', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/supriyo__9/', label: 'Instagram' },
   ];
 
   return (
