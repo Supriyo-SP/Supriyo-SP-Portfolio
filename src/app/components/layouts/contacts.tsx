@@ -1,7 +1,62 @@
+"use client";
+
+import { FormEvent, useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from 'lucide-react';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = event.target;
+    setFormData((current) => ({ ...current, [id]: value }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const { name, email, subject, message } = formData;
+
+    if (!name || !email || !subject || !message) {
+      setStatusMessage('Please fill in all fields before sending.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatusMessage('Sending your message...');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message.');
+      }
+
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setStatusMessage('Message sent successfully. Check your inbox for it.');
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to send message.';
+      setStatusMessage(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-16 px-6 relative">
       <div className="max-w-7xl mx-auto">
@@ -31,9 +86,9 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-bold text-white mb-6">Let's talk about everything!</h3>
+              <h3 className="text-3xl font-bold text-white mb-6">Let&apos;s talk about everything!</h3>
               <p className="text-gray-400 leading-relaxed mb-8">
-                I'm currently available for freelance work and open to discussing new projects, 
+                I&apos;m currently available for freelance work and open to discussing new projects, 
                 creative ideas or opportunities to be part of your vision.
               </p>
             </div>
@@ -46,7 +101,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
-                  <p className="text-white font-medium">supriyo@example.com</p>
+                  <p className="text-white font-medium">supriyopal554@gmail.com</p>
                 </div>
               </div>
 
@@ -56,7 +111,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Phone</p>
-                  <p className="text-white font-medium">+91 XXX XXX XXXX</p>
+                  <p className="text-white font-medium">+91 9907533294</p>
                 </div>
               </div>
 
@@ -66,7 +121,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Location</p>
-                  <p className="text-white font-medium">India</p>
+                  <p className="text-white font-medium">kolkata,India</p>
                 </div>
               </div>
             </div>
@@ -96,7 +151,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-xl border border-white/10 shadow-2xl">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Your Name
@@ -104,6 +159,9 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
                     placeholder="John Doe"
                   />
@@ -116,6 +174,9 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
                     placeholder="john@example.com"
                   />
@@ -128,6 +189,9 @@ export default function Contact() {
                   <input
                     type="text"
                     id="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
                     placeholder="Project Inquiry"
                   />
@@ -140,16 +204,24 @@ export default function Contact() {
                   <textarea
                     id="message"
                     rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors duration-300 resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
 
+                {statusMessage ? (
+                  <p className="text-sm text-cyan-300">{statusMessage}</p>
+                ) : null}
+
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl font-semibold text-white flex items-center justify-center gap-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-300 hover:scale-105"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send size={20} />
                 </button>
               </form>

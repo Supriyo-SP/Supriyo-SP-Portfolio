@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Home, Code2, Briefcase, Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { Home, Code2, Briefcase, Mail, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -21,9 +21,9 @@ export default function Navbar() {
   ];
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/Supriyo-SP', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/supriyo-pal-4064a6378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/supriyo_9', label: 'Instagram' },
   ];
 
   return (

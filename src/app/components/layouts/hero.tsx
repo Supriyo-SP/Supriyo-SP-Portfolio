@@ -1,19 +1,36 @@
 import Image from "next/image";
-import { motion } from 'motion/react';
-import { Code2, Cpu, Sparkles, Terminal, Zap, Rocket, GraduationCap, MapPin, Download, Send } from 'lucide-react';
+import { motion } from "motion/react";
+import {
+  Code2,
+  Cpu,
+  Sparkles,
+  Terminal,
+  Zap,
+  Rocket,
+  GraduationCap,
+  MapPin,
+  Download,
+  Send,
+} from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 md:px-6 pt-24 md:pt-32 pb-12 relative overflow-hidden">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center px-4 md:px-6 pt-24 md:pt-32 pb-12 relative overflow-hidden"
+    >
       {/* Animated grid background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
             linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px'
-        }} />
+            backgroundSize: "50px 50px",
+          }}
+        />
       </div>
 
       {/* Animated floating icons */}
@@ -53,7 +70,9 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-cyan-400/30 shadow-lg"
             >
               <Terminal size={16} className="text-cyan-400" />
-              <span className="text-cyan-400 font-mono text-sm">console.log("Welcome!");</span>
+              <span className="text-cyan-400 font-mono text-sm">
+                console.log(&quot;Welcome!&quot;);
+              </span>
             </motion.div>
 
             {/* Name with unique design */}
@@ -70,16 +89,21 @@ export default function Hero() {
                   animate={{ width: 48 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 />
-                <span className="text-lg md:text-xl text-gray-400 font-medium">Developer & Creator</span>
+                <span className="text-lg md:text-xl text-gray-400 font-medium">
+                  Developer & Creator
+                </span>
               </div>
 
               <div className="grid items-center gap-2 lg:grid-cols-[minmax(0,1fr)_280px] xl:grid-cols-[minmax(0,1fr)_320px]">
                 <div className="space-y-2">
                   <span className="block text-2xl font-semibold tracking-[0.1em] text-cyan-300 md:text-3xl">
-                    Hi, I'm
+                    Hi, I&apos;m
                   </span>
                   <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.86]">
-                    <span className="block text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    <span
+                      className="block text-white"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
                       SUPRIYO
                     </span>
                   </h1>
@@ -95,17 +119,17 @@ export default function Hero() {
                   <div className="relative flex h-full items-center justify-center overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-br from-slate-800/75 via-slate-900/80 to-slate-950/90 shadow-2xl">
                     <div className="absolute inset-5 rounded-[1.5rem] border border-dashed border-cyan-300/35" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.20),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(168,85,247,0.18),_transparent_38%)]" />
-                    <div className="relative flex flex-col items-center gap-4 px-8 text-center">
-                      <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-white/8 ring-1 ring-white/10 backdrop-blur-sm">
-                        <Code2 size={34} className="text-cyan-300" />
-                      </div>
-                      <div className="space-y-2">
-                        
-              
-                       <Image src="/me_in_web.jpeg" alt="Profile Photo" width={80} height={80} />
-                        
-                      </div>
+                    <div className="absolute inset-0">
+                      <Image
+                        src="/pp_web.jpeg"
+                        alt="Profile Photo"
+                        fill
+                        priority
+                        sizes="(min-width: 1280px) 320px, 280px"
+                        className="object-cover object-center"
+                      />
                     </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-900/10 to-transparent" />
                   </div>
                 </motion.div>
               </div>
@@ -119,9 +143,21 @@ export default function Hero() {
               className="flex flex-wrap gap-2 md:gap-3"
             >
               {[
-                { icon: Code2, text: 'Frontend Dev', gradient: 'from-cyan-500 to-blue-500' },
-                { icon: Cpu, text: 'IoT Builder', gradient: 'from-purple-500 to-pink-500' },
-                { icon: Zap, text: 'CS Student', gradient: 'from-green-500 to-emerald-500' },
+                {
+                  icon: Code2,
+                  text: "Frontend Dev",
+                  gradient: "from-cyan-500 to-blue-500",
+                },
+                {
+                  icon: Cpu,
+                  text: "IoT Builder",
+                  gradient: "from-purple-500 to-pink-500",
+                },
+                {
+                  icon: Zap,
+                  text: "CS Student",
+                  gradient: "from-green-500 to-emerald-500",
+                },
               ].map((role, i) => {
                 const Icon = role.icon;
                 return (
@@ -133,10 +169,16 @@ export default function Hero() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="group relative"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-r ${role.gradient} rounded-xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300`} />
-                    <div className={`relative px-4 py-2.5 rounded-xl bg-gradient-to-r ${role.gradient} bg-opacity-10 border border-white/10 backdrop-blur-sm flex items-center gap-2`}>
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-r ${role.gradient} rounded-xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300`}
+                    />
+                    <div
+                      className={`relative px-4 py-2.5 rounded-xl bg-gradient-to-r ${role.gradient} bg-opacity-10 border border-white/10 backdrop-blur-sm flex items-center gap-2`}
+                    >
                       <Icon size={16} className="text-white" />
-                      <span className="text-white font-semibold text-sm">{role.text}</span>
+                      <span className="text-white font-semibold text-sm">
+                        {role.text}
+                      </span>
                     </div>
                   </motion.div>
                 );
@@ -150,8 +192,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl"
             >
-              Building innovative web applications and smart IoT systems. Passionate about creating 
-              seamless user experiences that bridge software and hardware.
+              Building innovative web applications and smart IoT systems.
+              Passionate about creating seamless user experiences that bridge
+              software and hardware.
             </motion.p>
 
             {/* CTAs */}
@@ -164,14 +207,17 @@ export default function Hero() {
               <motion.a
                 href="#projects"
                 className="group relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 flex items-center gap-2"
-                whileHover={{ boxShadow: '0 0 30px rgba(6,182,212,0.6)' }}
+                whileHover={{ boxShadow: "0 0 30px rgba(6,182,212,0.6)" }}
               >
                 <span className="relative z-10">View Projects</span>
                 <Rocket size={18} className="relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.a>
-              
-              <motion.button
+
+              <motion.a
+                href="/Supriya_Pal_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
                 className="group relative px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-white backdrop-blur-sm overflow-hidden transition-all duration-300 flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
               >
@@ -179,7 +225,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-xl blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
                 <span className="relative z-10">Resume</span>
                 <Download size={18} className="relative z-10" />
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
 
@@ -192,7 +238,7 @@ export default function Hero() {
           >
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 rounded-2xl md:rounded-3xl blur-2xl" />
-            
+
             {/* Main card */}
             <div className="relative rounded-2xl md:rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl p-5 md:p-6 space-y-4 md:space-y-5">
               {/* Header */}
@@ -211,10 +257,15 @@ export default function Hero() {
 
               {/* Bio */}
               <p className="text-gray-300 text-sm md:text-base leading-relaxed text-center">
-                I’m Supriyo Pal, a Computer Science student and Full Stack Developer based in Kalyani, West Bengal. I build modern web applications using the MERN stack, Next.js, and Java Spring Boot, with a focus on clean architecture, secure APIs, and scalable backend systems.
-
-I enjoy transforming ideas into practical products—from institutional platforms to full-stack learning systems. Currently pursuing my B.Tech in CSE (CGPA: 8.67), I’m continuously improving my development skills while working on real-world projects.
-
+                I’m Supriyo Pal, a Computer Science student and Full Stack
+                Developer based in Kalyani, West Bengal. I build modern web
+                applications using the MERN stack, Next.js, and Java Spring
+                Boot, with a focus on clean architecture, secure APIs, and
+                scalable backend systems. I enjoy transforming ideas into
+                practical products—from institutional platforms to full-stack
+                learning systems. Currently pursuing my B.Tech in CSE (CGPA:
+                8.67), I’m continuously improving my development skills while
+                working on real-world projects.
               </p>
 
               {/* Info cards */}
@@ -227,11 +278,19 @@ I enjoy transforming ideas into practical products—from institutional platform
                     <div className="space-y-2">
                       <div>
                         <p className="text-xs text-gray-400">Education</p>
-                        <p className="text-white font-semibold text-sm md:text-base">CSE, 6th Semester</p>
+                        <p className="text-white font-semibold text-sm md:text-base">
+                          CSE, 6th Semester
+                        </p>
                       </div>
                       <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs md:text-sm text-gray-300">
-                        <span>SGPA: <span className="text-white font-semibold">8.67</span></span>
-                        <span>Expected: <span className="text-white font-semibold">2027</span></span>
+                        <span>
+                          SGPA:{" "}
+                          <span className="text-white font-semibold">8.67</span>
+                        </span>
+                        <span>
+                          Expected:{" "}
+                          <span className="text-white font-semibold">2027</span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -245,9 +304,13 @@ I enjoy transforming ideas into practical products—from institutional platform
                     <div className="space-y-1">
                       <div>
                         <p className="text-xs text-gray-400">Location</p>
-                        <p className="text-white font-semibold text-sm md:text-base">Kolkata, India</p>
+                        <p className="text-white font-semibold text-sm md:text-base">
+                          Kolkata, India
+                        </p>
                       </div>
-                      <p className="text-xs md:text-sm text-gray-300">Open to internships and freelance work.</p>
+                      <p className="text-xs md:text-sm text-gray-300">
+                        Open to internships and freelance work.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -260,7 +323,9 @@ I enjoy transforming ideas into practical products—from institutional platform
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                <span className="text-white font-semibold text-sm">Available for Work</span>
+                <span className="text-white font-semibold text-sm">
+                  Available for Work
+                </span>
               </motion.div>
 
               {/* Quick contact */}
@@ -270,7 +335,9 @@ I enjoy transforming ideas into practical products—from institutional platform
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative text-white font-semibold text-sm">Let's Connect</span>
+                <span className="relative text-white font-semibold text-sm">
+                  Let&apos;s Connect
+                </span>
                 <Send size={16} className="relative text-cyan-400" />
               </motion.a>
             </div>
