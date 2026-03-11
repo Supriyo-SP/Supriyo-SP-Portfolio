@@ -90,7 +90,7 @@ export default function Hero() {
                   transition={{ duration: 0.8, delay: 0.4 }}
                 />
                 <span className="text-lg md:text-xl text-gray-400 font-medium">
-                  Developer & Creator
+                  Full Stack Developer
                 </span>
               </div>
 
@@ -192,9 +192,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl"
             >
-              Building innovative web applications and smart IoT systems.
-              Passionate about creating seamless user experiences that bridge
-              software and hardware.
+              I build full stack web applications with Next.js, MERN, and Spring Boot, along with smart IoT systems that connect strong backend architecture to clean frontend experiences.
             </motion.p>
 
             {/* CTAs */}

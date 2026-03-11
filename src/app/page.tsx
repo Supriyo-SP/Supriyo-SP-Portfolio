@@ -5,6 +5,7 @@ import Skills from './components/layouts/skills';
 import Projects from './components/layouts/projects';
 import Achievements from './components/layouts/achievements';
 import Contact from './components/layouts/contacts';
+import Footer from './components/layouts/footer';
  
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Projects/>
       <Achievements /> 
       <Contact/>
+      <Footer />
     </div>
   );
 }

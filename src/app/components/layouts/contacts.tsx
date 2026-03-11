@@ -2,7 +2,8 @@
 
 import { FormEvent, useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Instagram } from 'lucide-react';
+import { siteConfig } from '@/src/lib/site';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,15 @@ export default function Contact() {
   });
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const socialLinks = siteConfig.socialLinks.map((social) => ({
+    ...social,
+    icon:
+      social.platform === 'github'
+        ? Github
+        : social.platform === 'linkedin'
+          ? Linkedin
+          : Instagram,
+  }));
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = event.target;
@@ -72,7 +82,7 @@ export default function Contact() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto rounded-full mb-4" />
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out!
+            Looking for a full stack developer for Next.js, MERN, or backend API work? Feel free to reach out.
           </p>
         </motion.div>
 
@@ -88,8 +98,7 @@ export default function Contact() {
             <div>
               <h3 className="text-3xl font-bold text-white mb-6">Let&apos;s talk about everything!</h3>
               <p className="text-gray-400 leading-relaxed mb-8">
-                I&apos;m currently available for freelance work and open to discussing new projects, 
-                creative ideas or opportunities to be part of your vision.
+                I&apos;m currently available for freelance work, internships, and full stack web development projects involving React, Next.js, Node.js, and scalable backend systems.
               </p>
             </div>
 
@@ -130,15 +139,22 @@ export default function Contact() {
             <div>
               <p className="text-gray-400 mb-4">Follow me on social media</p>
               <div className="flex gap-4">
-                <button className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-xl border border-white/10 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 text-gray-400 transition-all duration-300 hover:scale-110">
-                  <Github size={20} />
-                </button>
-                <button className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-xl border border-white/10 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 text-gray-400 transition-all duration-300 hover:scale-110">
-                  <Linkedin size={20} />
-                </button>
-                <button className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-xl border border-white/10 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 text-gray-400 transition-all duration-300 hover:scale-110">
-                  <Twitter size={20} />
-                </button>
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={social.label}
+                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-xl border border-white/10 flex items-center justify-center hover:border-cyan-400 hover:text-cyan-400 text-gray-400 transition-all duration-300 hover:scale-110"
+                    >
+                      <Icon size={20} />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>

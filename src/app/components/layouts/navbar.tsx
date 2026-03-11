@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
-import { Home, Code2, Briefcase, Mail, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Home, Code2, Briefcase, Mail, Github, Linkedin, Instagram } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { siteConfig } from '@/src/lib/site';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,11 +21,15 @@ export default function Navbar() {
     { name: 'Contact', icon: Mail, href: '#contact' },
   ];
 
-  const socialLinks = [
-    { icon: Github, href: 'https://github.com/Supriyo-SP', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/supriyo-pal-4064a6378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://www.instagram.com/supriyo__9/', label: 'Instagram' },
-  ];
+  const socialLinks = siteConfig.socialLinks.map((social) => ({
+    ...social,
+    icon:
+      social.platform === 'github'
+        ? Github
+        : social.platform === 'linkedin'
+          ? Linkedin
+          : Instagram,
+  }));
 
   return (
     <motion.nav
@@ -84,6 +89,8 @@ export default function Navbar() {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label={social.label}
                   className="relative w-10 h-10 rounded-lg flex items-center justify-center text-gray-400 hover:text-cyan-400 transition-colors group"
                   whileHover={{ scale: 1.1, rotate: 5 }}
